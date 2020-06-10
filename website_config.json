@@ -1,0 +1,27 @@
+[
+  {
+    "type": "module",
+    "title": "Gif creator",
+    "section": "Simple mini projects",
+    "description": "Create GIF from scratch (binary)",
+    "src": "archive-useful/gif_creator/main.js"
+  }, {
+    "type": "module",
+    "title": "Bresenham algorithm",
+    "section": "Simple mini projects",
+    "description": "Algorithm for rasterization",
+    "src": "archive-useful/bresenham/main.js"
+  }, {
+    "type": "module",
+    "title": "Quadtree",
+    "section": "Simple mini projects",
+    "description": "Quadtree structure storing points",
+    "src": "archive-useful/quadtree/main.js"
+  }, {
+    "type": "module",
+    "title": "Quadtree template",
+    "section": "Simple mini projects",
+    "description": "Quadtree structure storing regions",
+    "src": "archive-useful/quadtree_template/main.js"
+  }
+]
