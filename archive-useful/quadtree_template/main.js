@@ -110,7 +110,7 @@ class Project extends ProjectBase {
     const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
     const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
 
-    clearSubcanvas()
+    this.clearContext()
 
     ctx.fillStyle = '#222'
     ctx.fillRect( drawAreaX, drawAreaY, qTreeSize, qTreeSize )
