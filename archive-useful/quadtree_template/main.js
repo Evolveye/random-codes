@@ -1,101 +1,109 @@
-import { Point, Rect } from "../../js/classes.js";
-import { clearSubcanvas, subCtx as ctx, } from "../../js/functions.js";
-import Quadtree from "./classes.js";
-import {
-  setOnMouseUp,
-  setOnMouseMove,
-  addDescription,
-  addInput,
-} from "../../js/importer.js";
+import ProjectBase from "https://evolveye.github.io/projectBase.js"
+import { Point, Rect } from "./../utils.js"
+import Quadtree from "./classes.js"
 
-const qTreeSize = 500
-const objects = []
+class Project extends ProjectBase {
+  mount() {
+    this.qTreeSize = 500
+    this.objects = []
 
-/** @type {Quadtree} */
-let qTree
-let resolution = 4
-let mouseDown = false
-let meshShowing = true
-let rectSideLength = resolution
-let drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-let drawAreaY = (ctx.canvas.height - qTreeSize) / 2
+    /** @type {Quadtree} */
+    this.qTree = null
 
-createQTree( resolution )
-clear()
-qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+    const { ctx } = this
+    let resolution = 4
+    let mouseDown = false
+    let meshShowing = true
+    let rectSideLength = resolution
+    let drawAreaX = (ctx.canvas.width - qTreeSize) / 2
+    let drawAreaY = (ctx.canvas.height - qTreeSize) / 2
 
-addInput( `button`, `Clear`, { onclick() {
-  qTree.clear()
-  clear()
-} } )
-addInput( `number`, `Resolution`, { value:resolution, min:1, max:20, onchange() {
-  createQTree( this.value )
-  clear()
-} } )
-addInput( `checkbox`, `Show mesh`, { checked:meshShowing, onchange() {
-  const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-  const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
+    this.createQTree( resolution )
+    this.clear()
+    this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
 
-  meshShowing = this.checked
-  clear()
-  qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
-} } )
-addDescription( `Quadtree for figures/objects. Draw line on canvas` )
+    this.createInput( `button`, `Clear`, { onclick() {
+      this.qTree.clear()
+      this.clear()
+    } } )
+    this.createInput( `number`, `Resolution`, { value:resolution, min:1, max:20, onchange( input ) {
+      this.createQTree( input.value )
+      this.clear()
+    } } )
+    this.createInput( `checkbox`, `Show mesh`, { checked:meshShowing, onchange( input ) {
+      const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
+      const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
 
-setOnMouseUp( (up, down) => {
-  const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-  const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
-  const pointUp = new Point( up.x - drawAreaX, up.y - drawAreaY )
-  const pointDown = new Point( down.x - drawAreaX, down.y - drawAreaY )
+      meshShowing = input.checked
 
-  if (!qTree.boundary.contains( pointUp )) return
+      this.clear()
+      this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+    } } )
+    //addDescription( `Quadtree for figures/objects. Draw line on canvas` )
 
-  if (pointUp.equal( pointDown )) {
-    const obj = { type:'point', ...pointUp }
-    objects.push( obj )
-    qTree.insert( obj, pointUp )
+    this.setEventListener( this.wrapper, `mouseup`, (up, down) => {
+      const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
+      const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
+      const pointUp = new Point( up.x - drawAreaX, up.y - drawAreaY )
+      const pointDown = new Point( down.x - drawAreaX, down.y - drawAreaY )
+
+      if (!this.qTree.boundary.contains( pointUp )) return
+
+      if (pointUp.equal( pointDown )) {
+        const obj = { type:'point', ...pointUp }
+
+        this.objects.push( obj )
+        this.qTree.insert( obj, pointUp )
+      }
+      else {
+        const obj = {
+          type: 'line',
+          startPoint: new Point( pointDown.x, pointDown.y ),
+          endPoint: new Point( pointUp.x, pointUp.y )
+        }
+
+        this.objects.push( obj )
+        this.qTree.insertPointSequence( obj, pointDown, pointUp )
+      }
+
+      this.clear()
+      this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+    } )
+    this.setEventListener( this.wrapper, `mousedown`, (pressed, x, y, down) => {
+      const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
+      const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
+      const pointDown = new Point( down.x - drawAreaX, down.y - drawAreaY )
+      const pointCurrent = new Point( x - drawAreaX, y - drawAreaY )
+
+      this.clear()
+      this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+
+      if (!pressed || !this.qTree.boundary.contains( pointCurrent )) return
+
+      ctx.strokeStyle = '#b00'
+      ctx.beginPath()
+      ctx.moveTo( pointDown.x + drawAreaX, pointDown.y + drawAreaY )
+      ctx.lineTo( x, y )
+      ctx.stroke()
+    } )
   }
-  else {
-    const obj = {
-      type: 'line',
-      startPoint: new Point( pointDown.x, pointDown.y ),
-      endPoint: new Point( pointUp.x, pointUp.y )
-    }
 
-    objects.push( obj )
-    qTree.insertPointSequence( obj, pointDown, pointUp )
+
+  /* *
+   * Project methods */
+
+
+  createQTree( resolution=5 ) {
+    this.qTree = new Quadtree( new Rect( 0, 0, qTreeSize, qTreeSize ), resolution )
   }
+  clear() {
+    const { ctx } = this
+    const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
+    const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
 
-  clear()
-  qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
-} )
-setOnMouseMove( (pressed, x, y, down) => {
-  const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-  const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
-  const pointDown = new Point( down.x - drawAreaX, down.y - drawAreaY )
-  const pointCurrent = new Point( x - drawAreaX, y - drawAreaY )
+    clearSubcanvas()
 
-  clear()
-  qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
-
-  if (!pressed || !qTree.boundary.contains( pointCurrent )) return
-
-  ctx.strokeStyle = '#b00'
-  ctx.beginPath()
-  ctx.moveTo( pointDown.x + drawAreaX, pointDown.y + drawAreaY )
-  ctx.lineTo( x, y )
-  ctx.stroke()
-} )
-
-function createQTree( resolution=5 ) {
-  qTree = new Quadtree( new Rect( 0, 0, qTreeSize, qTreeSize ), resolution )
-}
-function clear() {
-  const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-  const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
-
-  clearSubcanvas()
-
-  ctx.fillStyle = '#222'
-  ctx.fillRect( drawAreaX, drawAreaY, qTreeSize, qTreeSize )
+    ctx.fillStyle = '#222'
+    ctx.fillRect( drawAreaX, drawAreaY, qTreeSize, qTreeSize )
+  }
 }
