@@ -13,7 +13,7 @@ class Project extends ProjectBase {
     /** @type {Quadtree} */
     this.qTree = null
 
-    const { ctx, qTreeSize, qTree } = this
+    const { ctx, qTreeSize } = this
     let resolution = 4
     let mouseDown = false
     let meshShowing = true
@@ -23,11 +23,10 @@ class Project extends ProjectBase {
 
     this.createQTree( resolution )
     this.clear()
-
-    qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+    this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
 
     this.createInput( `button`, `Clear`, { onclick() {
-      qTree.clear()
+      this.qTree.clear()
       this.clear()
     } } )
     this.createInput( `number`, `Resolution`, { value:resolution, min:1, max:20, onchange( input ) {
@@ -41,8 +40,7 @@ class Project extends ProjectBase {
       meshShowing = input.checked
 
       this.clear()
-
-      qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+      this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
     } } )
     //addDescription( `Quadtree for figures/objects. Draw line on canvas` )
 
@@ -52,14 +50,13 @@ class Project extends ProjectBase {
       const pointUp = new Point( up.x - drawAreaX, up.y - drawAreaY )
       const pointDown = new Point( down.x - drawAreaX, down.y - drawAreaY )
 
-      if (!qTree.boundary.contains( pointUp )) return
+      if (!this.qTree.boundary.contains( pointUp )) return
 
       if (pointUp.equal( pointDown )) {
         const obj = { type:'point', ...pointUp }
 
         this.objects.push( obj )
-
-        qTree.insert( obj, pointUp )
+        this.qTree.insert( obj, pointUp )
       }
       else {
         const obj = {
@@ -69,13 +66,11 @@ class Project extends ProjectBase {
         }
 
         this.objects.push( obj )
-
-        qTree.insertPointSequence( obj, pointDown, pointUp )
+        this.qTree.insertPointSequence( obj, pointDown, pointUp )
       }
 
       this.clear()
-
-      qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
+      this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
     } )
     this.setEventListener( this.wrapper, `mousedown`, (pressed, x, y, down) => {
       const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
@@ -84,10 +79,9 @@ class Project extends ProjectBase {
       const pointCurrent = new Point( x - drawAreaX, y - drawAreaY )
 
       this.clear()
+      this.qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
 
-      qTree.show( ctx, { meshShowing, drawAreaX, drawAreaY } )
-
-      if (!pressed || !qTree.boundary.contains( pointCurrent )) return
+      if (!pressed || !this.qTree.boundary.contains( pointCurrent )) return
 
       ctx.strokeStyle = '#b00'
       ctx.beginPath()
