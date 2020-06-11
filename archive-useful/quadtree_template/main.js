@@ -5,6 +5,8 @@ import Quadtree from "./classes.js"
 
 class Project extends ProjectBase {
   mount() {
+    this.createRenderingContext()
+
     this.qTreeSize = 500
     this.objects = []
 
