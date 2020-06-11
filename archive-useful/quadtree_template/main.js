@@ -1,5 +1,6 @@
 import ProjectBase from "https://evolveye.github.io/projectBase.js"
-import { Point, Rect } from "./../utils.js"
+import { Point, Rect } from "../utils.js"
+
 import Quadtree from "./classes.js"
 
 class Project extends ProjectBase {
@@ -107,3 +108,5 @@ class Project extends ProjectBase {
     ctx.fillRect( drawAreaX, drawAreaY, qTreeSize, qTreeSize )
   }
 }
+
+ProjectBase.run( new Project() )
