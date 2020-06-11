@@ -1,3 +1,9 @@
-const wrapper = document.querySelector( `#project_wrapper` )
+let interval = 0
 
-console.log( wrapper )
+function main() {
+  interval = setInterval( () => console.log( 1 ), 1000 )
+}
+
+function clear() {
+  clearInterval( interval )
+}
