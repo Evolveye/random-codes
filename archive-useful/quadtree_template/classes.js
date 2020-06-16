@@ -168,13 +168,23 @@ export default class Quadtree {
   }
 
   /**
+   *
    * @param {CanvasRenderingContext2D} ctx
+   * @param {object} param1
+   * @param {number} param1.drawAreaX
+   * @param {number} param1.drawAreaY
+   * @param {Rect} param1.drawArea
    */
-  show( ctx, { meshShowing=true, drawAreaX=0, drawAreaY=0 } ) {
+  show( ctx, { meshShowing=true, drawAreaX=0, drawAreaY=0, drawArea } ) {
     const { x, y, width, height } = this.boundary
     const { resolution, references: points } = this
 
-    ctx.strokeStyle = `#444`
+    ctx.strokeStyle = `#aaa`
+
+    if (drawArea) {
+      drawAreaX = drawArea.x
+      drawAreaY = drawArea.y
+    }
 
     if (meshShowing) ctx.strokeRect( drawAreaX + x, drawAreaY + y, width, height )
 
