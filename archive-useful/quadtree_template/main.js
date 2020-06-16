@@ -3,8 +3,10 @@ import { Point, Rect } from "../utils.js"
 
 import Quadtree from "./classes.js"
 
-class Project extends ProjectBase {
-  mount() {
+ProjectBase.projectClass = class Project extends ProjectBase {
+  constructor() {
+    super()
+
     /** @type {CanvasRenderingContext2D} */
     this.ctx = this.createRenderingContext()
 
@@ -152,5 +154,3 @@ class Project extends ProjectBase {
     ctx.fillRect( drawArea.x, drawArea.y, drawArea.width, drawArea.height )
   }
 }
-
-ProjectBase.run( new Project() )
