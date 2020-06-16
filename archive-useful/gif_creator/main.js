@@ -1,86 +1,93 @@
-// import https from "https";
-// import fs from "fs";
-// import { strict } from "assert";
-import { Gif } from "./classes.js";
-import { addElementToPage } from "../../js/importer.js";
+import ProjectBase from "https://evolveye.github.io/projectBase.js"
+import { Point, Rect, random } from "../utils.js"
 
+import Gif from "./classes.js"
 
-//
-// COMMENTS ARE FOR EASY COPY&PASTE TO NODE.JS
-//
+ProjectBase.projectClass = class Project extends ProjectBase {
+  constructor() {
+    super()
 
+    const gif = new Gif( { w:`FF FF FF`, r:`FF 00 00`, b:`00 00 FF`, k:`00 00 00` }, [
+      [
+        [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`w`,`w`,`w`,`w`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`w`,`w`,`w`,`w`,`b`,`b`,`b` ],
+        [ `b`,`b`,`b`,`w`,`w`,`w`,`w`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`w`,`w`,`w`,`w`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
+      ], [
+        [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`k`,`k`,`k`,`k`,`b`,`b`,`b` ],
+        [ `r`,`r`,`r`,`k`,`k`,`k`,`k`,`b`,`b`,`b` ],
+        [ `b`,`b`,`b`,`k`,`k`,`k`,`k`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`k`,`k`,`k`,`k`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
+        [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
+      ]
+    ] )
 
-const gif = new Gif( { w:`FF FF FF`, r:`FF 00 00`, b:`00 00 FF`, k:`00 00 00` }, [
-  [
-    [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`w`,`w`,`w`,`w`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`w`,`w`,`w`,`w`,`b`,`b`,`b` ],
-    [ `b`,`b`,`b`,`w`,`w`,`w`,`w`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`w`,`w`,`w`,`w`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
-  ], [
-    [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`r`,`r`,`b`,`b`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`k`,`k`,`k`,`k`,`b`,`b`,`b` ],
-    [ `r`,`r`,`r`,`k`,`k`,`k`,`k`,`b`,`b`,`b` ],
-    [ `b`,`b`,`b`,`k`,`k`,`k`,`k`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`k`,`k`,`k`,`k`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
-    [ `b`,`b`,`b`,`b`,`b`,`r`,`r`,`r`,`r`,`r` ],
-  ]
-] )
+    const div = document.createElement( `div` )
+    const p = document.createElement( `p` )
+    const img = gif.getImgTag( 100, 100 )
 
-const div = document.createElement( `div` )
-const p = document.createElement( `p` )
-const img = gif.getImgTag( 100, 100 )
+    p.style = `
+      position: absolute;
+      left: calc( 50% + 100px );
+      top: 50%;
+      transform: translateY( -50% );
+      font-size: 10px;
+    `
+    p.innerHTML += `
+      const gif = new Gif( { w:"FF FF FF", r:"FF 00 00", b:"00 00 FF", k:"00 00 00" }, [
+        [
+          [ "r","r","r","r","r","b","b","b","b","b" ],
+          [ "r","r","r","r","r","b","b","b","b","b" ],
+          [ "r","r","r","r","r","b","b","b","b","b" ],
+          [ "r","r","r","w","w","w","w","b","b","b" ],
+          [ "r","r","r","w","w","w","w","b","b","b" ],
+          [ "b","b","b","w","w","w","w","r","r","r" ],
+          [ "b","b","b","w","w","w","w","r","r","r" ],
+          [ "b","b","b","b","b","r","r","r","r","r" ],
+          [ "b","b","b","b","b","r","r","r","r","r" ],
+          [ "b","b","b","b","b","r","r","r","r","r" ],
+        ], [
+          [ "r","r","r","r","r","b","b","b","b","b" ],
+          [ "r","r","r","r","r","b","b","b","b","b" ],
+          [ "r","r","r","r","r","b","b","b","b","b" ],
+          [ "r","r","r","k","k","k","k","b","b","b" ],
+          [ "r","r","r","k","k","k","k","b","b","b" ],
+          [ "b","b","b","k","k","k","k","r","r","r" ],
+          [ "b","b","b","k","k","k","k","r","r","r" ],
+          [ "b","b","b","b","b","r","r","r","r","r" ],
+          [ "b","b","b","b","b","r","r","r","r","r" ],
+          [ "b","b","b","b","b","r","r","r","r","r" ],
+        ]
+      ]
+    `.replace( /\n/g, `<br>` ).replace( / /g, `&nbsp;` )
 
-p.style = `
-  position: absolute;
-  left: calc( 50% + 100px );
-  top: 50%;
-  transform: translateY( -50% );
-  font-size: 10px;
-`
-p.innerHTML += `
-const gif = new Gif( { w:"FF FF FF", r:"FF 00 00", b:"00 00 FF", k:"00 00 00" }, [
-  [
-    [ "r","r","r","r","r","b","b","b","b","b" ],
-    [ "r","r","r","r","r","b","b","b","b","b" ],
-    [ "r","r","r","r","r","b","b","b","b","b" ],
-    [ "r","r","r","w","w","w","w","b","b","b" ],
-    [ "r","r","r","w","w","w","w","b","b","b" ],
-    [ "b","b","b","w","w","w","w","r","r","r" ],
-    [ "b","b","b","w","w","w","w","r","r","r" ],
-    [ "b","b","b","b","b","r","r","r","r","r" ],
-    [ "b","b","b","b","b","r","r","r","r","r" ],
-    [ "b","b","b","b","b","r","r","r","r","r" ],
-  ], [
-    [ "r","r","r","r","r","b","b","b","b","b" ],
-    [ "r","r","r","r","r","b","b","b","b","b" ],
-    [ "r","r","r","r","r","b","b","b","b","b" ],
-    [ "r","r","r","k","k","k","k","b","b","b" ],
-    [ "r","r","r","k","k","k","k","b","b","b" ],
-    [ "b","b","b","k","k","k","k","r","r","r" ],
-    [ "b","b","b","k","k","k","k","r","r","r" ],
-    [ "b","b","b","b","b","r","r","r","r","r" ],
-    [ "b","b","b","b","b","r","r","r","r","r" ],
-    [ "b","b","b","b","b","r","r","r","r","r" ],
-  ]
-]
-`.replace( /\n/g, `<br>` ).replace( / /g, `&nbsp;` )
+    img.style = `
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      image-rendering: pixelated;
+      transform: translate( -50%, -50% );
+      font-size: 10px;
+    `
 
-img.className = `pixelart`
+    div.appendChild( p )
+    div.appendChild( img )
 
-div.appendChild( p )
-div.appendChild( img )
+    this.wrapper.appendChild( div )
 
-addElementToPage( div )
-
-// fs.writeFileSync( `test.gif`, Buffer.from( gif.bufferData, `hex` ) )
-// console.log( new Png( fs.readFileSync( `test.png` ) ).data )
+    // * Node.js code
+    // fs.writeFileSync( `test.gif`, Buffer.from( gif.bufferData, `hex` ) )
+    // console.log( new Png( fs.readFileSync( `test.png` ) ).data )
+  }
+}

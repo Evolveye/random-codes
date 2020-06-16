@@ -1,4 +1,4 @@
-export class Gif {
+export default class Gif {
   /*\
    *                                     ,,,----------,
    *                                     |||          |

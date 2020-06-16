@@ -123,5 +123,3 @@ ProjectBase.projectClass = class Project extends ProjectBase {
     }
   }
 }
-
-
