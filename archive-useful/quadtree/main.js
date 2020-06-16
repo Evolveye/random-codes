@@ -95,7 +95,7 @@ ProjectBase.projectClass = class Project extends ProjectBase {
 
     this.clearContext()
 
-    ctx.fillStyle = '#222'
+    ctx.fillStyle = '#fff2'
     ctx.fillRect( drawArea.x, drawArea.y, drawArea.width, drawArea.height )
   }
   draw() {
