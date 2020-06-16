@@ -23,11 +23,5 @@
     "section": "Simple mini projects",
     "description": "Quadtree structure storing regions",
     "src": "archive-useful/quadtree_template/main.js"
-  }, {
-    "type": "module",
-    "title": "Test2",
-    "section": "Simple mini projects",
-    "description": "",
-    "src": "archive-useful/test2-evolveye.github.io/test.js"
   }
 ]
