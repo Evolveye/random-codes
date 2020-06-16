@@ -39,10 +39,11 @@ ProjectBase.projectClass = class Project extends ProjectBase {
 
     p.style = `
       position: absolute;
-      left: calc( 50% + 100px );
+      left: calc( 50% - 100px );
       top: 50%;
       transform: translateY( -50% );
       font-size: 10px;
+      font-family: monospace;
     `
     p.innerHTML += `
       const gif = new Gif( { w:"FF FF FF", r:"FF 00 00", b:"00 00 FF", k:"00 00 00" }, [
@@ -74,10 +75,10 @@ ProjectBase.projectClass = class Project extends ProjectBase {
 
     img.style = `
       position: absolute;
-      left: 50%;
+      left: calc( 50% - 200px );
       top: 50%;
       image-rendering: pixelated;
-      transform: translate( -50%, -50% );
+      transform: translateY( -50% );
       font-size: 10px;
     `
 
