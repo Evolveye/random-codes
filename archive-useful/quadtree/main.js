@@ -1,107 +1,127 @@
-import { Point, Rect } from "../../js/classes.js";
-import { clearSubcanvas, subCtx as ctx, } from "../../js/functions.js";
-import {
-  setOnMouseUp,
-  setOnMouseMove,
-  addDescription,
-  addInput,
-} from "../../js/importer.js";
-import Quadtree from "./classes.js";
+import ProjectBase from "https://evolveye.github.io/projectBase.js"
+import { Point, Rect, random } from "../utils.js"
 
-const qTreeSize = 500
-const queryRect = new Rect( 100, 100, 100, 75 )
+import Quadtree from "./classes.js"
 
-/** @type {Quadtree} */
-let qTree
-let pointsOnlyInLeaves = false
+ProjectBase.projectClass = class Project extends ProjectBase {
+  constructor() {
+    super()
 
-createQTree()
-draw()
+    /** @type {CanvasRenderingContext2D} */
+    this.ctx = this.createRenderingContext()
 
-addInput( `button`, `Clear`, { onclick() {
-  qTree.clear()
-  clear()
-} } )
-addInput( `button`, `Generate 100`, { onclick() {
-  generatePoints( 100 )
-  draw()
-} } )
-addInput( `button`, `Switch "only leaves" mode: ${pointsOnlyInLeaves}`, { onclick() {
-  pointsOnlyInLeaves = !qTree.pointsOnlyInLeaves
+    this.qTreeSize = 500
+    this.queryRect = new Rect( 100, 100, 100, 75 )
 
-  this.value = `Switch "only leaves" mode: ${pointsOnlyInLeaves}`
+    this.drawArea = new Rect(
+      (this.ctx.canvas.width - this.qTreeSize) / 2,
+      (this.ctx.canvas.height - this.qTreeSize) / 2,
+      this.qTreeSize,
+      this.qTreeSize,
+    )
 
-  createQTree( )
-  draw()
-} } )
-addDescription( `Quadtree for points. Click on canvas to add point` )
+    this.qTree = this.createQTree()
+    this.pointsOnlyInLeaves = true
 
-setOnMouseUp( ({ x, y }) => {
-  const testingPoint = new Point(
-    x - (ctx.canvas.width - qTreeSize) / 2,
-    y - (ctx.canvas.height - qTreeSize) / 2
-  )
+    this.draw()
+    this.setUi()
+    this.setEvents()
+  }
 
-  if (!qTree.boundary.contains( testingPoint )) return
+  setUi() {
+    this.createInput( `button`, `Clear`, { onclick:() => {
+      this.qTree.clear()
+      this.clear()
+    } } )
+    this.createInput( `button`, `Generate 100`, { onclick:() => {
+      this.generatePoints( 100 )
+      this.draw()
+    } } )
+    this.createInput( `button`, `Switch "only leaves" mode: ${this.pointsOnlyInLeaves}`, { onclick:({ target:input }) => {
+      this.pointsOnlyInLeaves = !this.pointsOnlyInLeaves
 
-  qTree.insert( testingPoint )
+      input.value = `Switch "only leaves" mode: ${this.pointsOnlyInLeaves}`
 
-  draw()
-} )
-setOnMouseMove( (pressed, x, y) => {
-  const testingRect = new Rect(
-    x - (ctx.canvas.width - qTreeSize) / 2 - queryRect.width / 2,
-    y - (ctx.canvas.height - qTreeSize) / 2 - queryRect.height / 2,
-    queryRect.width,
-    queryRect.height
-  )
+      this.createQTree()
+      this.draw()
+    } } )
+    this.setDescription( `Quadtree for points. Try to click on featured area. "Only leaves" is removing quadtree posibility to store points inside every node` )
+  }
+  setEvents() {
+    const { ctx, qTreeSize, queryRect } = this
 
-  if (!qTree.boundary.contains( testingRect )) return
+    this.setEventListener( this.wrapper, `mouseup`, ({ layerX:x, layerY:y }) => {
+      const { qTree } = this
 
-  queryRect.x = testingRect.x
-  queryRect.y = testingRect.y
+      const testingPoint = new Point(
+        x - (ctx.canvas.width - qTreeSize) / 2,
+        y - (ctx.canvas.height - qTreeSize) / 2
+      )
 
-  draw()
-} )
+      if (!qTree.boundary.contains( testingPoint )) return
 
-function createQTree() {
-  qTree = new Quadtree( new Rect( 0, 0, qTreeSize, qTreeSize ), pointsOnlyInLeaves )
-}
-function clear() {
-  const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-  const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
+      qTree.insert( testingPoint )
 
-  clearSubcanvas()
+      this.draw()
+    } )
 
-  ctx.fillStyle = '#222'
-  ctx.fillRect( drawAreaX, drawAreaY, qTreeSize, qTreeSize )
-}
-function draw() {
-  clear()
+    this.setEventListener( this.wrapper, `mousemove`, ({ layerX:x, layerY:y }) => {
+      const testingRect = new Rect(
+        x - (ctx.canvas.width - qTreeSize) / 2 - queryRect.width / 2,
+        y - (ctx.canvas.height - qTreeSize) / 2 - queryRect.height / 2,
+        queryRect.width,
+        queryRect.height
+      )
 
-  const drawAreaX = (ctx.canvas.width - qTreeSize) / 2
-  const drawAreaY = (ctx.canvas.height - qTreeSize) / 2
-  const { x, y, width, height } = queryRect
+      if (!this.qTree.boundary.contains( testingRect )) return
 
-  qTree.show( ctx, drawAreaX, drawAreaY )
+      queryRect.x = testingRect.x
+      queryRect.y = testingRect.y
 
-  ctx.strokeStyle = '#0f0'
-  ctx.strokeRect( x + drawAreaX, y + drawAreaY, width, height )
+      this.draw()
+    } )
+  }
 
-  ctx.fillStyle = '#0f0'
-  qTree.query( queryRect ).forEach( ({ x, y }) => {
-    ctx.beginPath()
-    ctx.arc( x + drawAreaX, y + drawAreaY, 2, 0, Math.PI * 2 )
-    ctx.fill()
-  } )
-}
-function generatePoints( count ) {
-  for (let i = 0; i < count; i++) {
-    const point = new Point( random( qTreeSize ), random( qTreeSize ) )
+  /**
+   * @returns {Quadtree}
+   */
+  createQTree() {
+    this.qTree = new Quadtree( new Rect( 0, 0, this.qTreeSize, this.qTreeSize ), this.pointsOnlyInLeaves )
 
-    qTree.insert( point )
+    return this.qTree
+  }
+  clear() {
+    const { drawArea, ctx } = this
+
+    this.clearContext()
+
+    ctx.fillStyle = '#222'
+    ctx.fillRect( drawArea.x, drawArea.y, drawArea.width, drawArea.height )
+  }
+  draw() {
+    const { drawArea, ctx, queryRect } = this
+    const { x, y, width, height } = queryRect
+
+    this.clear()
+    this.qTree.show( ctx, drawArea.x, drawArea.y )
+
+    ctx.strokeStyle = '#0f0'
+    ctx.strokeRect( drawArea.x + x, drawArea.y + y, width, height )
+
+    ctx.fillStyle = '#0f0'
+    this.qTree.query( queryRect ).forEach( ({ x, y }) => {
+      ctx.beginPath()
+      ctx.arc( drawArea.x + x, drawArea.y + y, 2, 0, Math.PI * 2 )
+      ctx.fill()
+    } )
+  }
+  generatePoints( count ) {
+    for (let i = 0; i < count; i++) {
+      const point = new Point( random( this.qTreeSize ), random( this.qTreeSize ) )
+
+      this.qTree.insert( point )
+    }
   }
 }
-function random( max, min=0 ) {
-  return Math.floor( Math.random() * (max - min + 1) ) + min
-}
+
+

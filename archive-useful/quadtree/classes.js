@@ -1,4 +1,4 @@
-import { Point, Rect } from "../../js/classes.js";
+import { Point, Rect } from "../utils.js"
 export default class Quadtree {
   /** @type {Quadtree} */
   northeast = null

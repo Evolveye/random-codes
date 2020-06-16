@@ -34,11 +34,6 @@ ProjectBase.projectClass = class Project extends ProjectBase {
     this.setEvents()
   }
 
-
-  /* *
-   * Project methods */
-
-
   setUi() {
     const { ctx, resolution, drawArea } = this
 
