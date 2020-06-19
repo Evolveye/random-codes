@@ -79,10 +79,10 @@ ProjectBase.projectClass = class Project extends ProjectBase {
   bresenham( { x:xA, y:yA }, { x:xB, y:yB } ) {
     const { ctx, rectSideLength } = this
 
-    let x1   = floorToDivisible( xA, rectSideLength )
-    let y1   = floorToDivisible( yA, rectSideLength )
-    const x2 = floorToDivisible( xB, rectSideLength )
-    const y2 = floorToDivisible( yB, rectSideLength )
+    let x1   = this.floorToDivisible( xA, rectSideLength )
+    let y1   = this.floorToDivisible( yA, rectSideLength )
+    const x2 = this.floorToDivisible( xB, rectSideLength )
+    const y2 = this.floorToDivisible( yB, rectSideLength )
 
     const deltaX = Math.abs( x1 - x2 )
     const deltaY = Math.abs( y1 - y2 )
