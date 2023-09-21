@@ -1,0 +1,40 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * *\
+\* * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/*/ Header /*/
+    #header .info {
+      left: calc(50% + 160px);
+      transform: translate(-50%,40%);
+      height: 100%;
+    }
+        #header .fa-cog {
+          top: -20px;
+          font-size: 300px;
+          animation: cog 5s linear infinite;
+        }
+            @keyframes cog {
+              from {transform: rotate(0deg)}
+              to {transform: rotate(360deg)}
+            }
+
+        #header .iHTML {
+          left: -333px;
+          top: -45px;
+        }
+        #header .canvas {
+          left: -290px;
+          top: 25px;
+        }
+/* */
+
+/*/ Nav /*/
+/* */
+
+/*/ Main /*/
+/* */
+
+/*/ Footer /*/
+/* */
+

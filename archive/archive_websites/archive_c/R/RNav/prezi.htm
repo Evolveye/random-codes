@@ -1,0 +1,112 @@
+
+<header><h1>Znacznik nav</h1>
+  <p>
+    Aby uaktywnić znacznik, należy dopisać do dowolnego elementu atrybut <b>data-r="nav"</b>.<br>
+    Korzystajac ze standardowego znacznika nav, nie musimy dopisywać wartosci atrybutu.<br>
+    System ustawi tę wartosć, pobierajac nazwę znacznika.
+  </p>
+  <p>
+    Struktura menu składa się z listy. Możliwe jest używanie zarówno listy uporzadkowanej,
+    jak i nieuporządkowanej. pełny kod poniższego nawigatora znajduje się u dołu opisu.
+  </p>
+  <nav data-r onmouseover>
+    <ul>
+      <li class="active">
+        <span>Znaczniki</span>
+        <ul>
+          <li><a href="?page=textarea">Textarea</a></li>
+          <li><a href="?page=nav">Nav</a></li>
+          <li><a href="?page=table">Table</a></li>
+        </ul>
+      </li>
+      <li>
+        <span>Rozszerzenia</span>
+        <ul>
+          <li><a href="?page=ope">One page engine</a></li>
+        </ul>
+      </li>
+      <li><a href="?page=codeConstruct">Konstruktor kodu</a></li>
+    </ul>
+  </nav>
+  <textarea data-r disabled class="presenter">
+    |<element data-r="nav"></element>
+    |
+    | lub
+    |
+    |<nav data-r></nav>
+  </textarea>
+</header>
+<section><h2>Tworzenie submenu</h2>
+  <p>Nawigator obsługuje jedynie pierwsza i drugą warstwę nawigacji</p>
+  <p>
+    Jeżeli użytkownik chce utworzyć warstwę trzecią, na własną rękę musi stworzyć niezbędny kod CSS.<br>
+    Każda warstwa posiada klasę layer-n, gdzie n oznacza poziom zagnieżdżenia.
+  </p>
+  <p>
+    Tworzenie submenu jest banalnie proste.
+    Wystarczy zagnieździć kolejny element listy wewnątrz elementu li
+  </p>
+  <p>Poniżej znajduje się kompletny kod nawigatora znajdujacego się w nagłówku opisu</p>
+  <textarea data-r disabled class="presenter">
+    |<nav data-r onmouseover>
+    |  <ul>
+    |    <li class="active">
+    |      <span>Znaczniki</span>
+    |      <ul>
+    |        <li><a href="?page=textarea">Textarea</a></li>
+    |        <li><a href="?page=nav">Nav</a></li>
+    |        <li><a href="?page=table">Table</a></li>
+    |      </ul>
+    |    </li>
+    |    <li>
+    |      <span>Rozszerzenia</span>
+    |      <ul>
+    |        <li><a href="?page=ope">One page engine</a></li>
+    |      </ul>
+    |    </li>
+    |    <li><a href="?page=codeConstruct">Konstruktor kodu</a></li>
+    |  </ul>
+    |</nav>
+  </textarea>
+</section>
+<section><h2>Pokazywanie pierwszego submenu</h2>
+  <p>
+    Nawigator udostępnia dwa sposoby na pokazanie swojej 2 warstwy.<br>
+    Wersja w nagłówku pokazuje 2 warstwę po najechaniu myszą.<br>
+  </p>
+  <h3>Po najechaniu</h3>
+  <p>
+    Aby pokazywanie submenu po najechaniu myszą było możliwe, należy dopisać do znacznika
+    atrybut <b>onmouseover</b>. Podanie liczbowej wartości atrybutu, ustawi określony w milisekundach,
+    przez który użytkownik musi trzymać mysz nieruchomo nad elemeentem w warstwie pierwszej nawigatora,
+    aby pokazać warstwę drugą.<br>
+    Domyślną wartością atrybutu jest 150 (czyli 0,15 sekundy).
+  </p>
+  <h3>Po kliknięciu</h3>
+  <p>
+    Aby pokazywanie submenu poprzez kliknięcie elementu w warstwie pierwszej było mozliwe,
+    należy dopisać do znacnzika atrybut <b>onclick</b>.<br>
+    Podanie wartosci atrybutu nic nie zmieni (nie jest on brany pod uwagę).
+  </p>
+  <br>
+  <textarea data-r disabled class="presenter">
+    |<nav data-r onmouseover></nav>
+    |<nav data-r onmouseover="1000"></nav>
+    |<nav data-r onclick></nav>
+    |<nav data-r onclick onmouseover></nav>
+  </textarea>
+</section>
+<section><h2>Ikony</h2>
+  <p>
+    Jeżeli Twoja strona używa kroju FontAwesome, możesz dodać atrybut <b>data-fa</b>,
+    do każdego elementu reprezentujacego tekst wewnatrz nawigatora.
+  </p>
+  <textarea data-r disabled class="presenter">
+    |<nav data-r>
+    |  <ul>
+    |    <li><span data-fa="code">Kod</span></li>
+    |    <li><a data-fa="link">Link</a></li>
+    |  </ul>
+    |</nav>
+  </textarea>
+</section>

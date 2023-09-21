@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <title>Paweł S ~ Pusto tu D:</title>
+    <!--  -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--  -->
+    <link rel="shortcut icon" href="./favicon.ico">
+    <link rel="stylesheet" href="./main.css"> 
+    <!--  -->
+    <script src="./R.js"></script>
+    <script src="./RTextarea.js"></script>
+    <!--  -->
+  </head>
+  <body>
+
+    <nav id="nav">
+      <div class="home">
+        <a href=".">
+          {(<span class="s">&lt;</span> R <span class="s">&gt;</span>)}
+        </a>
+      </div>
+      <div class="items"></div>
+      <div class="other">
+        <p>Paweł Stolarski</p>
+        <p>Polecam się w sprawach web</p>
+      </div>
+      <div class="eraser"></div>
+    </nav>
+
+    <main>
+      <div class="console">
+        <textarea data-r name="console_window" disabled>
+          |  \ | /
+          | ─  ◙  ─
+          |  ╚═╦═╝
+          |════╝               -
+          |                 /   Witaj!
+          |          ╔═══╗   -  W prawdzie nie jest to słaba
+          |          ╚═╦═╝   -  gra z wyborami w dialogach, ale
+          |         ╔══╩══╗ \   musze Cię poprosić o wybór...
+          |         ║ |R| ║    -  -  -  -  -  -  -  -  -  -  -  -  -  -
+          |         ╙▄─▄─▄╜
+          |          ░ ░ ░
+          |         . . . .
+        </textarea>
+        <menu>
+          <menuitem>
+            <a href="./R/"> <span class="hover_bold">Wybór #1</span>: Przejdź na stronę biblioteki R </a>
+          </menuitem>
+        </menu>
+      </div>
+    </main>
+    <footer>
+      <script>
+        consoleItemHover(document.querySelector('main menu'))
+        function consoleItemHover(element) {
+          let eleIter = document.createNodeIterator(element,NodeFilter.SHOW_TEXT, text => {
+            return /^[\S ]/.test(text.textContent) ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT
+          })
+
+          let txts = []
+          let txt
+          while(txt = eleIter.nextNode())
+            txts.push(txt)
+
+          for(let txt of txts) {
+            let text = txt.textContent
+            let span = document.createElement('span')
+
+            for(let letter of text)
+              span.innerHTML += `<span class="letter">${letter}</span>`
+
+            txt.parentElement.replaceChild(span,txt)
+          }
+        }
+      </script>
+    </footer>
+  </body>
+</html>

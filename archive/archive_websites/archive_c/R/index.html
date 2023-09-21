@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+
+  <!-- meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!-- R -->
+  <script src="./R.js"></script>
+  <script src="./RNav/main.js"></script>
+  <script src="./RAnchors/main.js"></script>
+  <script src="./RTextarea/main.js"></script>
+
+  <!-- links -->
+  <link rel="shortcut icon" href="../assets/favicon.ico">
+  <link rel="stylesheet" href="../assets/styles/sanitize.css">
+  <link rel="stylesheet" href="../assets/styles/main.css">
+  <link rel="stylesheet" href="../assets/styles/docs.css">
+  <link rel="stylesheet" href="../assets/styles/docs.1024.css" media="screen and (max-width:1024px)">
+  <link rel="stylesheet" href="../assets/styles/docs.480.css" media="screen and (max-width:480px)">
+  <link rel="stylesheet" href="../assets/styles/fa.css"> 
+</head>
+<body>
+  <header id="header">
+    <div class="RLogo big">
+      <span class="R"><i>{ ( &lt; </i>R<i> &gt; ) }</i></span>
+      <span class="a"><i>{ ( </i>&lt; <i>R </i>&gt;<i> ) }</i></span>
+      <span class="b"><i>{ </i>( <i>&lt; R &gt;</i> )<i> }</i></span>
+      <span class="c">{ <i>( &lt; R &gt; )</i> }</span>
+    </div>
+    <div class="info">
+      <i class="fa fa-cog"></i>
+      <p class="iHTML">
+        Usprawniamy działanie<br>
+        znaczników HTML w taki sposób,<br>
+        aby ich funkcjonalność była bardziej przydatna
+      </p>
+      <p class="canvas">
+        Używaj elementu canvas prosciej,<br>
+        zarówno w wersji podstawowej,<br>
+        jak i technologii WebGL
+      </p>
+    </div>
+  </header>
+
+  <nav id="navGlobal" data-r data-hover data-click>
+    <a class="RLogo" href="/R">{(<span class="a">&lt;</span> R <span class="a">&gt;</span>)}</a>
+
+    <span data-fa="bars" data-scope="items">Nawigacja</span>
+    <ol>
+      <li>
+        <span data-fa="code">Znaczniki</span>
+        <ol>
+          <li><a data-fa="text-width" href="?R=textarea">Textarea</a></li>
+          <li><a data-fa="bars" href="?R=nav">Nav</a></li>
+          <li><a data-fa="anchor" href="?R=anchors">Kotwice</a></li>
+        </ol>
+      </li>
+      <li><a data-fa="puzzle-piece" href="?R=modules">Moduły</a></li>
+    </ol>
+
+    <ul class="userPanel"></ul>
+
+    <a class="avatar" href="..">
+      <img alt="@Paweł S" src="https://avatars2.githubusercontent.com/u/28712303?v=4&s=460">
+    </a>
+  </nav>
+
+  <main id="main">
+    <nav data-r="anchors" data-scope="main > article" data-top-margin="100">
+      <h4>Spis treści</h4>
+    </nav>
+    <article id="content" data-r-tmpl="content"></article>
+  </main>
+
+  <footer id="footer">
+    <script>
+      let vars = R.getUrlParams()
+      let siteLang = vars.lang == 'en' ? '.en' : ''
+      let RLib = vars.R
+               ? `./R${vars.R.charAt(0).toUpperCase()}${vars.R.slice(1).toLowerCase()}/prezi${siteLang}.htm`
+               : `./-tmplts/homepage${siteLang}.htm`
+
+      R.builder({
+        content: [RLib,`./-tmplts/404${siteLang}.htm`],
+        $cb() {
+          R.tags.$constructor(content ,true)
+          R.tags.anchors.$constructor.reload()
+        }
+      })
+    </script>
+  </footer>
+</body>
+</html>

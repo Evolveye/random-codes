@@ -1,0 +1,49 @@
+
+<header><h1>Kotwice</h1>
+  <p>
+    Aby uaktywnić znacznik, należy dopisać do dowolnego elementu atrybut <b>data-r="anchors"</b>.<br>
+    Znacznik ten nie posiada swojego semantycznego odpowiednika w standardzie HTML.
+  </p>
+  <p>Strukturą jest wielopoziomowa lista nieuporządkowana, przed którą możemy wpisać dowolny kod</p>
+  <p>Kompletny kod poniższego spisu treści znajduje sięu dołu opisu</p>
+  <nav data-r="anchors" data-scope="main > article">Lista z nagłówkami:</nav>
+</header>
+<section><h2>Zakres działania</h2>
+  <p>
+    Ustawienie zakresu działania spisu treści, jest bardzo przydatne.<br>
+    Jeżeli używamy nagłówków h1-h6 w różnych miejscach an stronie,
+    a spis treści ma działąć jedynie w pewnym zakresie, należy ustawić atrybut <b>data-scope</b>,
+    którego wartością będzie wskazanie elementu z któego będą pobierane nagłówki.<br>
+    Wskazujemy tak samo, jak w CSS czy metodzie querySelector.
+  </p>
+  <textarea data-r disabled class="presenter">
+    |<nav data-r="anchors" data-scope="main > article">
+  </textarea>
+</section>
+<section><h2>Górny margines</h2>
+  <p>
+    Standardowe kotwice w HTMl mają to do siebie, że element do któego przeskakujemy,
+    znajduje się bezpośrednio na poczatku pola widzenia.<br>
+    Jest to uciążliwe gdy mamy doklejony nagłówek - nasz element jest przez niego zakryty.<br>
+  </p>
+  <p>
+    Aby temu zapobiec, należy ustawic atrybut <b>data-top-margin</b>,
+    z artością liczbową oznaczajacą ilość pikseli nad kotwicą.
+  </p>
+  <textarea data-r disabled class="presenter">
+    |<nav data-r="anchors" data-top-margin="100">
+  </textarea>
+</section>
+<section><h2>Wartość przed listą</h2>
+  <p>
+    Jeżeli chcemy na poczatku listy umieścić jakąś treść,
+    wystarczy ją wpisać wewnatrz znacznika kotwicy.
+    Rezultatem będzie umieszczenie tego kodu w pierwszym elemencie lsity (li)
+  </p>
+  <p>Poniżej znajduje się kod, który został użyty do spisu treści w nagłówku opisu</p>
+  <textarea data-r disabled class="presenter">
+    |<nav data-r="anchors" data-scope="main > article">
+    |  <h4>Lista z nagłówkami:</h4>
+    |</nav>
+  </textarea>
+</section>

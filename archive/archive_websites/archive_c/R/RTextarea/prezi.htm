@@ -1,0 +1,86 @@
+
+<header><h1>Znacznik textarea</h1>
+  <p>
+    Aby uaktywnić znacznik, należy dopisać do dowolnego elementu atrybut <b>data-r="textarea"</b>.<br>
+    Korzystajac ze standardowego znacznika textarea, nie musimy dopisywać wartosci atrybutu.<br>
+    System ustawi tę wartosć, pobierajac nazwę znacznika.
+  </p>
+  <textarea data-r class="editor">
+    |RTextarea
+    |
+    |  Jestem prosty w użyciu,
+    |    więc wypróbuj mnie teraz!
+  </textarea>
+</header>
+<section><h2>Text wstępny</h2>
+  <p>
+    Aby ustawić wstępny tekst, wystarczy go wpisać wewnatrz znacznika.<br>
+    Ważną rzeczą, jest poprzedzenie tekstu znakiem pionowej linii "|".
+    Linia ta ustawia początek linii, stąd napisany kod będzie estetyczny.
+  </p>
+
+  <p>Poniższy przykład przedstawia kompletny kod edytora znajdujacego się w nagłówku opisu.</p>
+  <textarea data-r disabled class="presenter">
+    |<textarea data-r class="editor">
+    |  |RTextarea
+    |  |
+    |  |  Jestem prosty w użyciu,
+    |  |    więc wypróbuj mnie teraz!
+    |&lt;/textarea>
+  </textarea>
+  <p>
+    <bold>Ważne:</bold> W powyższym kodzie do znacznika zamykajacego użyto kodu &amp;lt;.
+    <br>Jego brak spowoduje zamknięcie znacznika edytora.
+  </p>
+</section>
+<section><h2>Strefa nieedytowalna</h2>
+  <p>
+    W języku HTML istnieje atrybut "disabled", między innymi dla znaczników textarea.<br>
+    Jeżeli użyjesz go w znaczniku edytora, stanie się on odporny na edycje
+  </p>
+
+  <textarea data-r disabled class="presenter">
+    |<textarea data-r disabled class="editor">
+    |
+    |  Nie masz tutaj mocy!
+    |
+    |&lt;/textarea>
+  </textarea>
+</section>
+<section><h2>Stylowanie</h2>
+  <p>
+    Jeżeli będziesz chciał (a z pewnoscią będziesz tego chiał) ostylować edytor,
+    śmiało można użyć do tego jezyka CSS.<br>
+    Do tego celu, przydadzą Ci się klasy:
+  </p>
+  <ul>
+    <li>
+      <b>.RTextarea</b> - wszystkie edytory
+      <br>Możesz użyć tej klasy jedynie do ostylowania strefy edytora, nie edytora!
+    </li>
+    <li>
+      <b>.editor</b> - właściwy edytor
+    </li>
+    <li>
+      <b>.linesnums</b> - strefa numerów linii
+    </li>
+    <li>
+      <b>.num</b> - pojedynczy numer linii
+    </li>
+    <li>
+      <b>.lines</b> - strefa tekstu
+    </li>
+    <li>
+      <b>.line</b> - pojedyncza linia z tekstem
+    </li>
+  </ul>
+</section>
+<section><h2>Na liście TODO</h2>
+  <ul>
+    <li>Menu kontekstowe (ppm)</li>
+    <li>Możliwosć tworzenia własnych skrótów klawiszowych</li>
+    <li>Dodatek umożliwiajacy kolorować zdefiniowaną wcześniej składnię np. języka</li>
+    <li>Zaznaczanie sferyczne ("prostokątem")</li>
+    <li class="notDecorated"><small>... oraz więcej, jeśli znajdzie się na coś pomysł</small></li>
+  </ul>
+</section>

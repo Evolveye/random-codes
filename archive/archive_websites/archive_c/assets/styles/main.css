@@ -1,0 +1,110 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * *\
+\* * * * * * * * * * * * * * * * * * * * * * * */
+
+/* */
+/*: Base :*/
+
+    @font-face {
+      font-family: 'Lato';
+      src: url('../fonts/Lato.ttf') format('truetype');
+      font-style: normal;
+      font-weight: normal;
+      text-rendering: optimizeLegibility;
+    }
+
+    html {
+      --color-Node: #62a01b;
+      --color-HTML: #e44d26;
+      --color-CSS: #0070ba;
+      --color-JS: #d6ba32;
+      --color-R: #083058;
+    }
+
+    body {
+      font-family: Lato, "Helvetica Neue", Helvetica, sans-serif, Arial;
+      overflow-x: hidden;
+      margin: 0;
+    }
+
+    /* li::before {
+      content:'\f0c8';
+      font-family: FontAwesome;
+      font-size: 10px;
+      color: var(--color-HTML);
+    } */
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 { 
+      font-family: consolas;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+
+/* */
+/*: Scopes :*/
+    .pafLogo {
+      font-family: monospace;
+      white-space: pre;
+      font-weight: bold;
+      font-size: 1.2em;
+    }
+      .pafLogo_colon { color:#e44d26 }
+
+    .Header {}
+      .Header-authorLogo {}
+
+    .Nav {
+      position: sticky;
+      top: 0;
+      height: 74px;
+      z-index: 1000;
+    }
+      /*: Module mod :*/
+        .M-PafNav_dynList.is-layer_1 > li {
+          height: 30px;
+          margin: 0 3px;
+        }
+        .M-PafNav_dynList.is-layer_2 {
+          height: 40px;
+        }
+        .M-PafNav_dynList.is-layer_2 > li {
+          padding: 3px;
+        }
+        
+      /* */
+      .Nav_home {
+        border-top: 5px solid #62a01b;
+        padding-top: 24px;
+        margin: 0;
+        width: 110px;
+      }
+      .Nav_main {
+        width: calc(100% - 220px);
+        border-top: 5px solid #e44d26;
+        padding: 0 15px;
+        color: #AAA
+      }
+        .Nav_main li.is-active > .M-PafNav_dynTitle,
+        .M-PafNav_dynTitle:hover,
+        .M-PafNav_dynItem:hover {
+          color: black;
+        }
+
+      .Nav_user.is-image {
+        border-top: 5px solid #0070ba;
+        padding: 0 15px;
+        margin: 0;
+        width: 110px;
+      }
+      .Nav_user img {
+        border-radius: 50%;
+        padding: 10px;
+      }
+
+/* */

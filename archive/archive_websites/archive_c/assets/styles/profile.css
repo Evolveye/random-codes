@@ -1,0 +1,114 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * *\
+\* * * * * * * * * * * * * * * * * * * * * * * */
+
+/* */
+/*: Base :*/
+
+    html {
+      --color: #62a01b;
+      --Content-bgr: #222;
+    }
+
+    body {
+      background: #222;
+      overflow-x: hidden;
+    }
+
+/* */
+/*/ Scopes /*/
+
+    .topLine {
+      border-top: 5px solid var(--color);
+    }
+
+    .Header {
+      display: block;
+      padding: 20px 0;
+      background-color: white;
+    }
+      .Header-avatar {
+        display: block;
+        margin-left: 15%;
+        height: 100px;
+        border-radius: 50%;
+      }
+
+    .Content {
+      position: relative;
+      color: whitesmoke;
+      border-top: 3px double;
+    }
+      .Content_project {
+        margin: 20px 5%;
+        margin-bottom: 25px;
+        padding: 25px;
+        padding-top: 0;
+        opacity: .8;
+        border-bottom: 1px solid rgba(255,255,255,.1);
+        transition: all .2s;
+      }
+        .Content_project-activator {
+          width: 100%;
+          border: none;
+          padding: 0;
+          background-color: transparent;
+          text-align: left;
+          color: inherit;
+        }
+        .Content_project-title {
+          font-size: 17px;
+          margin: 10px;
+        }
+        .Content_project-image {
+          display: block;
+        }
+        .Content_project-link {
+          display: block;
+          color: #dd4d4d;
+        }
+        .Content_project-wrapper {
+          display: flex;
+          flex-wrap: wrap;
+          padding-left: 20px;
+          transition: all .5s;
+        }
+        .Content_project-deactivator {
+          display: none;
+        }
+        .Content_project-box {
+          display: block;
+          width: 275px;
+          margin: 15px;
+          padding: 20px;
+          padding-top: 0;
+          border: 1px solid rgba(255,255,255,.1);
+          border-top: 2px solid royalblue;
+          text-decoration: none;
+          color: inherit;
+        }
+          .Content_project-box::before {
+            content: '';
+            display: block;
+            width: 90%;
+            margin: 0 auto 20px;
+            border-top: 1px solid rgba(255,255,255,.1)
+          }
+
+        .Content_project-itemDesc {
+          margin: 10px;
+          margin-bottom: 0;
+          font-size: 14px;
+        }
+        
+        .Content_project-activator:focus,
+        .Content_project-deactivator:focus {
+          outline: none;
+        }
+
+/* */
+/*/ States /*/
+    .Content_project:hover {
+      opacity: 1;
+    }
+/* */

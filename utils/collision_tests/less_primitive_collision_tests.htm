@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <style>
 </style>
- 
+
 <canvas id="canvas"></canvas>
 <div id="display"></div>
 <div>Press G to activate god mode</div>
- 
+
 <script>
 var canvas = document.getElementById('canvas'),
 	img = new Image();
@@ -17,7 +17,7 @@ var	ctx = canvas.getContext("2d"),
     display = document.getElementById('display'),
 	player ={solid:1, x: 245, y: 325, w: 15, h: 15,},
 	keys = [],
-	speed = 100, 
+	speed = 100,
 	D=0, A=0, S=0, W=0, a = 0.2, b = 0.1,
 	boxes =[
 		wall=[2, {x:0, y:0},{x:0, y:canvas.height}],
@@ -34,7 +34,7 @@ function playerLogic(){
 	nextPos ={x:player.x, y:player.y, w:player.w, h:player.h};
 	nextPos.x += D - A
 	collDetect(nextPos, player,'X')
-	
+
 	if(keys[83]){if(S<speed) S+=a} else S>a ? S-=b : S=Math.round(S)
 	if(keys[87]){if(W<speed) W+=a} else W>a ? W-=b : W=Math.round(W)
 	nextPos ={x:player.x, y:player.y, w:player.w, h:player.h};

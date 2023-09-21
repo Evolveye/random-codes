@@ -1,0 +1,51 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * *\
+\* * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/*/ Header /*/
+    .RLogo.big {
+      font-size: 30px;
+      left: 50%;
+    }
+
+    #header .info {display:none}
+/* */
+
+/*/ Nav /*/
+/* */
+
+/*/ Main /*/
+        #main > nav {display:none}
+
+        #main header > *,
+        #main section > * {
+          margin: 1.5em 30px;
+          margin-top: 0;
+        }
+        #main h1,
+        #main h2,
+        #main h3 { 
+          margin: 1.5em 0;
+          width: 100%;
+          text-align: center;
+          padding: 0;
+        }
+
+        #main > article {
+          max-width: 100%;
+          min-width: 100%;
+          box-shadow: none;
+          border: none;
+          border-radius: 0;
+        }
+            #main > article .RTag {
+              width: unset;
+              min-width: unset;
+              display: block;
+            }
+/* */
+
+/*/ Footer /*/
+/* */
+

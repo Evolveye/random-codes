@@ -1,0 +1,143 @@
+
+/* * * * * * * * * * * * * * * * * * * * * * * *\
+\* * * * * * * * * * * * * * * * * * * * * * * */
+
+
+/*/ Header /*/
+    #header {
+      height: 160px;
+      background-color: var(--color-R);
+      position: relative;
+      color: whitesmoke;
+      overflow: hidden;
+    }
+    #header .info,
+    #header .info > * {
+      position: absolute;
+      width: max-content;
+      text-align:center;
+    }
+    #header .info {
+      left: 50%;
+      transform: translate(-50%,40%);
+      height: 100%;
+    }
+        #header .fa-cog {
+          top: -20px;
+          font-size: 300px;
+          animation: cog 5s linear infinite;
+        }
+            @keyframes cog {
+              from {transform: rotate(0deg)}
+              to {transform: rotate(360deg)}
+            }
+
+        #header .iHTML {
+          left: -333px;
+        }
+        #header .canvas {
+          left: 275px;
+        }
+/* */
+
+/*/ Main /*/
+    #main {
+      display: flex;
+    }
+        #main > nav {
+          max-width: 99px;
+          transition: all .5s;
+          padding: 10px;
+          padding-right: 0;
+          margin: 30px 0;
+          border: 1px solid transparent;
+          opacity: 0.2;
+        }
+            #main > nav > ul {
+              position: sticky;
+              top: 121px;
+              padding-right: 10px;
+            }
+                #main > nav li {
+                  width: max-content;
+                  margin: 5px 0;
+                }
+                #main > nav .title {
+                  font-weight: bold;
+                  letter-spacing: 1px;
+                  font-family: monospace;
+                  font-size: 16px;
+                  margin-bottom: 10px;
+                }
+
+                #main > nav > ul ul {
+                  margin-left: 15px;
+                  margin-bottom: 20px;
+                }
+
+            #main > nav:hover {
+              max-width: 100%;
+              background-color: white;
+              box-shadow: 0 0 5px #D0D0D0;
+              opacity: 1;
+            }
+
+        #main > article {
+          flex: 1;
+          min-height: calc(100vh - 160px - 60px - 20px - 5px);
+          max-width: calc(100% - 199px);
+          min-width: calc(100% - 199px);
+        }
+            #main header > *,
+            #main section > * {
+              margin: 1.5em 30px;
+              margin-top: 0;
+            }
+            #main h1 {
+              padding-right: 40px;
+              padding-left: 5px;
+              border-bottom: 3px solid var(--color-HTML);
+              margin: 20px;
+              margin-top: 40px;
+            }
+            #main h2 {
+              margin: 20px;
+              padding-right: 40px;
+              padding-left: 5px;
+              border-bottom: 1px solid #D0D0D0;
+            }
+            #main h3 {margin: 20px 0 0 30px}
+            #main section {
+              position: relative;
+              margin: 40px 0;
+            }
+            #main section::before {
+              content: '';
+              display: block;
+              height: 20px;
+              border-top: 1px solid #E0E0E0;
+              border-bottom: 1px solid #E0E0E0;
+              background: var(--color-bgr);
+            }
+            #main .RTag.presenter {
+              margin: 20px 0;
+              width: 100%;
+              min-width: unset;
+              border: none;
+              border-top: 5px solid var(--color-HTML);
+            }
+                #main .RTag.presenter .linesnums {
+                  display: none;
+                }
+                #main .RTag.presenter .lines {
+                  padding: 5px 0;
+                }
+                #main .RTag.presenter .editor {
+                  background: var(--color-R);
+                  letter-spacing: 1px;
+                  padding: 10px 30px;
+                  font-size: 14px;
+                  color: white;
+                  resize: none;
+                }
+/* */

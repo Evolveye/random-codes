@@ -24,7 +24,7 @@ var canvas = document.getElementById("myCanvas"),
 	c = canvas.getContext("2d"),
 	height = 800,
 	width = 1000,
-	speed = 10,
+	speed = 200,
 	keys = [],
 	player ={
 		X : 150,
@@ -40,7 +40,7 @@ var canvas = document.getElementById("myCanvas"),
 	//Ustawienie ścian
 	boxes = [],
 	triangles = [];
-	
+
 //Krawędzie canvas
 boxes.push({X: 0,       Y: 0,        X2: 5,     Y2: height}); //lewa
 boxes.push({X: 0,       Y: height-5, X2: width, Y2: 5     }); //dolna
@@ -77,7 +77,7 @@ box();
 
 //Wszystko co dotyczy gracza
 function gracz(){
-c.clearRect(0, 0, width, height);	
+c.clearRect(0, 0, width, height);
 
 c.fillStyle = "red";
 c.fillRect(player.X, pl_up.Y, player.X2, player.Y2);
@@ -104,7 +104,7 @@ c.fillRect(player.X, player.Y, player.X2, player.Y2);
 		if(player.X - pl_right.X - 1000 > speed){right_left = -speed}
 		else{right_left = -(player.X - pl_right.X - 1000)}
 	}}else{right_left = 0}
-	
+
 	//Kierunek góra/dół
 	if(keys[83] || keys[87]){
 	 if(keys[83]){
@@ -114,7 +114,7 @@ c.fillRect(player.X, player.Y, player.X2, player.Y2);
 		if(player.Y - pl_up.Y - 1000 > speed){up_down = -speed}
 		else{up_down = -(player.Y - pl_up.Y - 1000)}
 	}}else{up_down = 0}
-	
+
 player.X += right_left
 player.Y += up_down
 }

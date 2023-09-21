@@ -23,9 +23,9 @@ var //# PODSTAWOWE ZMIENNE:
 	canvas = document.getElementById("gameCanvas"),
 	ctx = canvas.getContext("2d"),
 	keys = [],
-	
+
 	//*Obiekty i oddziaływanie
-	speed = 10,
+	speed = 2,
 	player ={x: 240, y: 240, x2: 10, y2: 10,},
 	testObj ={x: 0, y: 0, x2: 10, y2: 10,},
 	trians =[
@@ -43,7 +43,7 @@ gameEngine();
 function gameEngine(){
 ctx.clearRect(-(canvas.width/2 - player.x), -(canvas.height/2 - player.y), canvas.width, canvas.height);
 
-	triangles()	
+	triangles()
 	ctx.fillStyle = "blue";
 	ctx.fillRect(player.x, player.y, player.x2, player.y2);
 
@@ -55,7 +55,7 @@ ctx.clearRect(-(canvas.width/2 - player.x), -(canvas.height/2 - player.y), canva
 		if(keys[65]) //A
 			if(triangleCollision(player, -speed)[0] == true)player.x = triangleCollision(player, -speed)[1].x+1;
 				else player.x += -speed//player.x = p3.x+1
-	
+
 		if(keys[83]){player.y += speed;} //S
 		if(keys[87]){player.y += -speed;} //W
 requestAnimationFrame(gameEngine);}
@@ -100,7 +100,7 @@ var	trianColor = "grey";
 
 	if(Math.round(trianACP +trianABP + trianBCP) == Math.abs((x2 - x1)*(y2 - y1)/2))return [true, p3, x1];
 }return false}
-	
+
 //# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 //# mousePos - zmienna/funkcja podająca położenie kursora na polu gry .x .y
 	getMousePos = function(evt) {
@@ -114,7 +114,7 @@ var	trianColor = "grey";
 		var position = getMousePos(e);
 		document.getElementById("coords").innerHTML = "|| " + position.x + "<br>|| " + position.y
     });
-	
+
 //# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 document.body.addEventListener("keydown", function(e){keys[e.keyCode] = true});
 document.body.addEventListener("keyup", function(e){keys[e.keyCode] = false});

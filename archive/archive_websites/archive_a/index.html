@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>R :: Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./main.css">
+  <script src="./R.js"></script>
+  <script src="./RNav.js"></script>
+</head>
+<body>
+
+  <header class="header">
+    <div class="RLogo big">
+      <span class="l"><i>{ ( &lt; </i>R<i> &gt; ) }</i></span>
+      <span class="b s"><i>{ ( </i>&lt; <i>R </i>&gt;<i> ) }</i></span>
+      <span class="b r"><i>{ </i>( <i>&lt; R &gt;</i> )<i> }</i></span>
+      <span class="b c">{ <i>( &lt; R &gt; )</i> }</span>
+    </div>
+  </header>
+
+  <nav class="nav">
+    <div class="action">
+      <a href="https://paweleks.github.io/">
+        <b class="RLogo">{(<span class="s">&lt;</span> R <span class="s">&gt;</span>)}</b>
+      </a>
+    </div>
+    <div class="items">
+      <div class="item">
+        <h3>Projects under the R sign</h3>
+        <p>
+          <a href="https://paweleks.github.io/Rtags/">Improved tags</a>
+          <span class="outdated">Simple canvas</span>
+          <span class="outdated">Modern desktop</span>
+        </p>
+      </div>
+    </div>
+    <div class="other">
+      <p>Version of framework: <span class="version_alpha">Alpha</span></p>
+      <p>
+        Improved tags: <span class="version_beta">Beta</span>
+        Simple canvas: <span class="outdated">Outdated</span>
+      </p>
+    </div>
+    <div class="eraser"></div>
+  </nav>
+
+  <div class="content">
+    <nav data-r name="mainNav">
+      <ul name="tags" title="Improved tags"></ul>
+    </nav>
+    <main>
+    </main>
+  </div>
+
+  <footer class="footer">
+    <script>
+      R.getFile('https://paweleks.github.io/Rtags/index.conf.json', config => {
+        for(let tag of config.rTags) {
+          RNav.item_insert('mainNav','tags',`<a href="https://paweleks.github.io/Rtags/?tag=${tag}">${tag}</a>`)
+        }
+        R.tags.__constructor(document.querySelector('main'),true)
+      })
+    </script>
+  </footer>
+
+</body>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+
+  <!-- Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <!--{: Paf :}-->
+  <script src="./R/R.js"></script>
+  <script src="./R/RNav/main.js"></script>
+  <script src="./R/RAnchors/main.js"></script>
+  <script src="./R/RTextarea/main.js"></script>
+
+  <!-- Styles -->
+  <link rel="shortcut icon" href="./assets/favicon.ico">
+  <link rel="stylesheet" href="./assets/styles/main.css">
+  <link rel="stylesheet" href="./assets/styles/profile.css" media="screen and (min-width:500px)">
+  <link rel="stylesheet" href="./assets/styles/profile.500.css" media="screen and (max-width:500px)">
+  <link rel="stylesheet" href="./assets/styles/fa.css"> 
+</head>
+<body>
+  <div class="topLine"></div>
+  <header class="Header is-section">
+    <img class="Header-avatar" alt="Paweł's avatar" src="https://avatars2.githubusercontent.com/u/28712303?v=4&s=460">
+  </header>
+
+  <main class="Content">
+    <section class="Content_project">
+      <button class="Content_project-activator">
+        <h2 class="Content_project-title">HTML modules</h2>
+        <img class="Content_project-image" alt="" src="">
+      </button>
+
+      <div class="Content_project-wrapper">
+        <button class="Content_project-deactivator">Back</button>
+
+        <a class="Content_project-box" href="#">
+          <h3 class="Content_project-itemName">Navigator</h3>
+          <p class="Content_project-itemDesc">Horizontal navigation</p>
+        </a>
+
+        <a class="Content_project-box" href="#">
+          <h3 class="Content_project-itemName">Editor</h3>
+          <p class="Content_project-itemDesc">Simple text editor</p>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="Content_project">
+      <button class="Content_project-activator">
+        <h2 class="Content_project-title">Presentations creator</h2>
+        <img class="Content_project-image" alt="" src="">
+      </button>
+
+      <div class="Content_project-wrapper">
+        <button class="Content_project-deactivator">Back</button>
+
+        <a class="Content_project-box" href="#">
+          <h3 class="Content_project-itemName">Basic presenter</h3>
+          <p class="Content_project-itemDesc">Presentations creator with basic functionality</p>
+        </a>
+
+      </div>
+    </section>
+    
+    <section class="Content_project">
+      <button class="Content_project-activator">
+        <h2 class="Content_project-title">Web apps methodology</h2>
+        <img class="Content_project-image" alt="" src="">
+      </button>
+
+      <div class="Content_project-wrapper">
+        <button class="Content_project-deactivator">Back</button>
+
+        <a class="Content_project-box" href="#">
+          <h3 class="Content_project-itemName">HTML</h3>
+          <p class="Content_project-itemDesc">How to build good HTML structure with Paf methodology</p>
+        </a>
+
+        <a class="Content_project-box" href="#">
+          <h3 class="Content_project-itemName">CSS</h3>
+          <p class="Content_project-itemDesc">How to create good CSS in Your project</p>
+        </a>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <script>
+      ;(function() {
+        const projects = document.querySelectorAll('.Content_project')
+
+        for(let project of projects) {
+          let button_activator = project.querySelector('.Content_project-activator')
+          let button_desactivator = project.querySelector('.Content_project-deactivator')
+
+          button_activator.addEventListener('click', e => { project.classList.add('is-active') })
+          button_desactivator.addEventListener('click', e => { project.classList.remove('is-active') })
+        }
+      })()
+    </script>
+  </footer>
+</body>
+</html>

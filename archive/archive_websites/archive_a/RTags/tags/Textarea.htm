@@ -1,0 +1,100 @@
+<template class="data">
+  "Version" : "Beta"
+</template>
+
+<template class="header">
+  <h1>RTextarea</h1>
+
+  <textarea data-r name="Editor">
+    |RTextarea
+    |
+    |  I'm easy to use (yea, very)
+    |
+    |  I'm colorful (lol, nope yet)
+    |
+    |  I've a lot of options (not yet too ;-;)
+    |
+    |
+    |Use me now!
+  </textarea>
+</template>
+
+
+<template class="desc">
+  <h2>Configuration</h2>
+
+    <h3>Initial text</h3>
+      <p>You can set the initial text inside a text tag. Full code looks like below.
+      <br>Results are showed above, the text was set by default </p>
+
+      <p>Hey, look! That's the code of above editor.</p>
+      <textarea data-r name="Presenter" disabled>
+        |<textarea data-r name="Editor">
+        |  |RTextarea
+        |  |
+        |  |  I'm easy to use (yea, very)
+        |  |
+        |  |  I'm colorful (lol, nope yet)
+        |  |
+        |  |  I've a lot of options (not yet too ;-;)
+        |  |
+        |  |
+        |  |Use me now!
+        |&lt;/textarea>
+      </textarea>
+
+    <h3>Not editable area</h3>
+      <p>HTML have "disabled" attribute inter alia for textarea tag.
+      <br>So, if RTextarea have this attribute, then it isn't editable.
+      <br>Effect is similar to code presenter below.</p>
+
+      <textarea data-r name="Presenter" disabled>
+        |<textarea data-r name="Editor" disabled>&lt;/textarea>
+      </textarea>
+</template>
+
+
+<template class="desc">
+  <h2>Styling</h2>
+  <p>If you will want (you will definitely want it) stylize RTextarea, you can do it in CSS.
+  <br>For this, you will need a few classes:</p>
+  <ul>
+    <li>
+      <b>.RTextarea</b> - all textareas
+      <br>You can use this class for the whole box - box, not editor!
+    </li>
+    <li>
+      <b>.editor</b> - proper editor
+      <br>You can use this class for the editor box - text lines, and numbers of lines
+    </li>
+    <li>
+      <b>.linesnums</b> - numbers of text lines wrapper
+    </li>
+    <li>
+      <b>.num</b> - single number of line
+    </li>
+    <li>
+      <b>.lines</b> - text lines wrapper
+    </li>
+    <li>
+      <b>.line</b> - single line of text
+    </li>
+  </ul>
+</template>
+
+
+<template class="desc">
+  <h2>On TODO list</h2>
+
+  <ul>
+    <li>Context menu</li>
+    <li>Own shortcuts</li>
+    <li>Languages addon</li>
+    <li>Text coloring addon</li>
+    <li>Rect range</li>
+    <li class="notDecorated"><small>... and more</small></li>
+  </ul>
+
+  <p>Do you want new features?
+  <br>Write your ideas in <a href="https://github.com/PawelekS/Rtags/pulls">GitHub pull requests</a></p>
+</template>
