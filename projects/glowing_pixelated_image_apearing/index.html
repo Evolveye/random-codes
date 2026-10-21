@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Intro</title>
+    <style>
+      :root { color-scheme: dark; font-family: system-ui, sans-serif; }
+      body { margin: 0; background: #111; color: #ddd; }
+      main { max-width: 1400px; margin: 0 auto; padding: 24px 16px; }
+      h1 { font-size: 20px; margin: 0 0 4px; }
+      p { margin: 0 0 16px; color: #999; }
+      .row { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+      figure { margin: 0; }
+      figcaption { font-size: 13px; color: #888; margin-bottom: 6px; }
+      .stage { position: relative; aspect-ratio: 16 / 9; background: #010101; overflow: hidden; border-radius: 6px; }
+      video { width: 100%; display: block; border-radius: 6px; }
+      .controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+      button { font: inherit; padding: 8px 14px; border-radius: 6px; border: 1px solid #444; background: #222; color: #eee; cursor: pointer; }
+      button:hover { background: #2c2c2c; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Pixel Intro</h1>
+      <p>Left: original video. Right: canvas re-creation (same timing). "Full-screen" shows it as an app launch overlay.</p>
+      <div class="controls">
+        <button id="compare">▶ Play side by side</button>
+        <button id="fullscreen">▶ Full-screen app intro</button>
+      </div>
+      <div class="row">
+        <figure>
+          <figcaption>Original (cactus-intro-2.mp4)</figcaption>
+          <video id="video" src="/cactus-intro-2.mp4" muted playsinline preload="auto"></video>
+        </figure>
+        <figure>
+          <figcaption>pixel-intro.ts</figcaption>
+          <div class="stage" id="stage"></div>
+        </figure>
+      </div>
+    </main>
+    <script type="module" src="/src/demo.ts"></script>
+  </body>
+</html>

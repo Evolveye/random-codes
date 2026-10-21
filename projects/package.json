@@ -1,0 +1,13 @@
+{
+  "name": "projects",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint --cache",
+    "lint:fix": "eslint --cache --fix"
+  },
+  "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-eye": "^2.1.1"
+  }
+}
