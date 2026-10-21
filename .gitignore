@@ -1,3 +1,5 @@
 .vscode/
 private-*
+_*
 node_modules
+.eslintcache
