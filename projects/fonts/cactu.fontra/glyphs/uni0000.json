@@ -1,0 +1,38 @@
+{
+"name": "uni0000",
+"sources": [
+{
+"name": "",
+"layerName": "26f564f8",
+"locationBase": "26f564f8"
+}
+],
+"layers": {
+"26f564f8": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 0,
+"y": 0
+},
+{
+"x": 0,
+"y": 0
+},
+{
+"x": 0,
+"y": 0
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 0
+}
+}
+}
+}

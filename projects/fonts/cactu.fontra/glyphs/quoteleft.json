@@ -1,0 +1,96 @@
+{
+"name": "quoteleft",
+"sources": [
+{
+"name": "",
+"layerName": "26f564f8",
+"locationBase": "26f564f8"
+}
+],
+"layers": {
+"26f564f8": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 64,
+"y": 639,
+"smooth": true
+},
+{
+"x": 27,
+"y": 651,
+"type": "quad"
+},
+{
+"x": -7,
+"y": 719,
+"type": "quad"
+},
+{
+"x": 5,
+"y": 756,
+"smooth": true
+},
+{
+"x": 51,
+"y": 896,
+"smooth": true
+},
+{
+"x": 63,
+"y": 933,
+"type": "quad"
+},
+{
+"x": 131,
+"y": 967,
+"type": "quad"
+},
+{
+"x": 168,
+"y": 955,
+"smooth": true
+},
+{
+"x": 205,
+"y": 943,
+"type": "quad"
+},
+{
+"x": 239,
+"y": 875,
+"type": "quad"
+},
+{
+"x": 227,
+"y": 838,
+"smooth": true
+},
+{
+"x": 181,
+"y": 698,
+"smooth": true
+},
+{
+"x": 169,
+"y": 661,
+"type": "quad"
+},
+{
+"x": 101,
+"y": 627,
+"type": "quad"
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 186
+}
+}
+}
+}

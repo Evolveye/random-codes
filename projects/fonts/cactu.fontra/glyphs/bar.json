@@ -1,0 +1,96 @@
+{
+"name": "bar",
+"sources": [
+{
+"name": "",
+"layerName": "26f564f8",
+"locationBase": "26f564f8"
+}
+],
+"layers": {
+"26f564f8": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 93,
+"y": -64,
+"smooth": true
+},
+{
+"x": 54,
+"y": -64,
+"type": "quad"
+},
+{
+"x": 0,
+"y": -10,
+"type": "quad"
+},
+{
+"x": 0,
+"y": 29,
+"smooth": true
+},
+{
+"x": 0,
+"y": 960,
+"smooth": true
+},
+{
+"x": 0,
+"y": 999,
+"type": "quad"
+},
+{
+"x": 54,
+"y": 1053,
+"type": "quad"
+},
+{
+"x": 93,
+"y": 1053,
+"smooth": true
+},
+{
+"x": 132,
+"y": 1053,
+"type": "quad"
+},
+{
+"x": 186,
+"y": 999,
+"type": "quad"
+},
+{
+"x": 186,
+"y": 960,
+"smooth": true
+},
+{
+"x": 186,
+"y": 29,
+"smooth": true
+},
+{
+"x": 186,
+"y": -10,
+"type": "quad"
+},
+{
+"x": 132,
+"y": -64,
+"type": "quad"
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 186
+}
+}
+}
+}

@@ -1,0 +1,96 @@
+{
+"name": "comma",
+"sources": [
+{
+"name": "",
+"layerName": "26f564f8",
+"locationBase": "26f564f8"
+}
+],
+"layers": {
+"26f564f8": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 122,
+"y": 396,
+"smooth": true
+},
+{
+"x": 159,
+"y": 384,
+"type": "quad"
+},
+{
+"x": 193,
+"y": 316,
+"type": "quad"
+},
+{
+"x": 181,
+"y": 279,
+"smooth": true
+},
+{
+"x": 135,
+"y": 139,
+"smooth": true
+},
+{
+"x": 123,
+"y": 102,
+"type": "quad"
+},
+{
+"x": 55,
+"y": 68,
+"type": "quad"
+},
+{
+"x": 18,
+"y": 80,
+"smooth": true
+},
+{
+"x": -19,
+"y": 92,
+"type": "quad"
+},
+{
+"x": -53,
+"y": 160,
+"type": "quad"
+},
+{
+"x": -41,
+"y": 197,
+"smooth": true
+},
+{
+"x": 5,
+"y": 337,
+"smooth": true
+},
+{
+"x": 17,
+"y": 374,
+"type": "quad"
+},
+{
+"x": 85,
+"y": 408,
+"type": "quad"
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 186
+}
+}
+}
+}

@@ -1,0 +1,60 @@
+{
+"unitsPerEm": 1024,
+"axes": {
+"axes": [
+{
+"name": "weight",
+"label": "Weight",
+"tag": "wght",
+"minValue": 100,
+"defaultValue": 400,
+"maxValue": 900
+}
+]
+},
+"sources": {
+"26f564f8": {
+"name": "Regular",
+"lineMetricsHorizontalLayout": {
+"baseline": {
+"value": 0
+},
+"ascender": {
+"value": 960
+},
+"descender": {
+"value": -64
+},
+"capHeight": {
+"value": 0
+},
+"xHeight": {
+"value": 960
+}
+}
+},
+"95ea2b5a": {
+"name": "Black",
+"location": {
+"weight": 900
+},
+"lineMetricsHorizontalLayout": {
+"baseline": {
+"value": 0
+},
+"ascender": {
+"value": 960
+},
+"descender": {
+"value": -64
+},
+"capHeight": {
+"value": 0
+},
+"xHeight": {
+"value": 960
+}
+}
+}
+}
+}
