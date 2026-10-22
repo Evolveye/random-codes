@@ -9,6 +9,14 @@
 "minValue": 100,
 "defaultValue": 400,
 "maxValue": 900
+},
+{
+"name": "slant",
+"label": "Slant",
+"tag": "slnt",
+"minValue": -24,
+"defaultValue": 0,
+"maxValue": 0
 }
 ]
 },
@@ -33,6 +41,29 @@
 }
 }
 },
+"5a1a7ed0": {
+"name": "Slanted",
+"lineMetricsHorizontalLayout": {
+"baseline": {
+"value": 0
+},
+"ascender": {
+"value": 960
+},
+"descender": {
+"value": -64
+},
+"capHeight": {
+"value": 0
+},
+"xHeight": {
+"value": 960
+}
+},
+"location": {
+"slant": -24
+}
+},
 "95ea2b5a": {
 "name": "Black",
 "location": {
@@ -54,6 +85,29 @@
 "xHeight": {
 "value": 960
 }
+}
+},
+"1d4a7b10": {
+"name": "Light",
+"lineMetricsHorizontalLayout": {
+"baseline": {
+"value": 0
+},
+"ascender": {
+"value": 960
+},
+"descender": {
+"value": -64
+},
+"capHeight": {
+"value": 0
+},
+"xHeight": {
+"value": 960
+}
+},
+"location": {
+"weight": 100
 }
 }
 }

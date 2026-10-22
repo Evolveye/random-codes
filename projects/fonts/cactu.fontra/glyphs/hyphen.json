@@ -5,6 +5,21 @@
 "name": "",
 "layerName": "26f564f8",
 "locationBase": "26f564f8"
+},
+{
+"name": "",
+"layerName": "95ea2b5a",
+"locationBase": "95ea2b5a"
+},
+{
+"name": "",
+"layerName": "1d4a7b10",
+"locationBase": "1d4a7b10"
+},
+{
+"name": "",
+"layerName": "5a1a7ed0",
+"locationBase": "5a1a7ed0"
 }
 ],
 "layers": {
@@ -100,6 +115,288 @@
 ]
 },
 "xAdvance": 372
+}
+},
+"5a1a7ed0": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 51,
+"y": 401,
+"smooth": true
+},
+{
+"x": 12,
+"y": 401,
+"type": "quad"
+},
+{
+"x": -18,
+"y": 455,
+"type": "quad"
+},
+{
+"x": 0,
+"y": 494,
+"smooth": true
+},
+{
+"x": 0,
+"y": 495,
+"smooth": true
+},
+{
+"x": 18,
+"y": 534,
+"type": "quad"
+},
+{
+"x": 96,
+"y": 588,
+"type": "quad"
+},
+{
+"x": 135,
+"y": 588,
+"smooth": true
+},
+{
+"x": 321,
+"y": 588,
+"smooth": true
+},
+{
+"x": 360,
+"y": 588,
+"type": "quad"
+},
+{
+"x": 390,
+"y": 534,
+"type": "quad"
+},
+{
+"x": 372,
+"y": 495,
+"smooth": true
+},
+{
+"x": 372,
+"y": 494,
+"smooth": true
+},
+{
+"x": 354,
+"y": 455,
+"type": "quad"
+},
+{
+"x": 276,
+"y": 401,
+"type": "quad"
+},
+{
+"x": 237,
+"y": 401,
+"smooth": true
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 372
+}
+},
+"95ea2b5a": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 93,
+"y": 401,
+"smooth": true
+},
+{
+"x": 54,
+"y": 401,
+"type": "quad"
+},
+{
+"x": 0,
+"y": 455,
+"type": "quad"
+},
+{
+"x": 0,
+"y": 494,
+"smooth": true
+},
+{
+"x": 0,
+"y": 495,
+"smooth": true
+},
+{
+"x": 0,
+"y": 534,
+"type": "quad"
+},
+{
+"x": 54,
+"y": 588,
+"type": "quad"
+},
+{
+"x": 93,
+"y": 588,
+"smooth": true
+},
+{
+"x": 279,
+"y": 588,
+"smooth": true
+},
+{
+"x": 318,
+"y": 588,
+"type": "quad"
+},
+{
+"x": 372,
+"y": 534,
+"type": "quad"
+},
+{
+"x": 372,
+"y": 495,
+"smooth": true
+},
+{
+"x": 372,
+"y": 494,
+"smooth": true
+},
+{
+"x": 372,
+"y": 455,
+"type": "quad"
+},
+{
+"x": 318,
+"y": 401,
+"type": "quad"
+},
+{
+"x": 279,
+"y": 401,
+"smooth": true
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 372
+}
+},
+"1d4a7b10": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": 47,
+"y": 447,
+"smooth": true
+},
+{
+"x": 27,
+"y": 447,
+"type": "quad"
+},
+{
+"x": 0,
+"y": 474,
+"type": "quad"
+},
+{
+"x": 0,
+"y": 494,
+"smooth": true
+},
+{
+"x": 0,
+"y": 495,
+"smooth": true
+},
+{
+"x": 0,
+"y": 515,
+"type": "quad"
+},
+{
+"x": 27,
+"y": 542,
+"type": "quad"
+},
+{
+"x": 47,
+"y": 542,
+"smooth": true
+},
+{
+"x": 233,
+"y": 542,
+"smooth": true
+},
+{
+"x": 253,
+"y": 542,
+"type": "quad"
+},
+{
+"x": 280,
+"y": 515,
+"type": "quad"
+},
+{
+"x": 280,
+"y": 495,
+"smooth": true
+},
+{
+"x": 280,
+"y": 494,
+"smooth": true
+},
+{
+"x": 280,
+"y": 474,
+"type": "quad"
+},
+{
+"x": 253,
+"y": 447,
+"type": "quad"
+},
+{
+"x": 233,
+"y": 447,
+"smooth": true
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 280
 }
 }
 }

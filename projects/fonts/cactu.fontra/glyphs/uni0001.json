@@ -5,6 +5,11 @@
 "name": "",
 "layerName": "26f564f8",
 "locationBase": "26f564f8"
+},
+{
+"name": "",
+"layerName": "5a1a7ed0",
+"locationBase": "5a1a7ed0"
 }
 ],
 "layers": {
@@ -24,6 +29,32 @@
 },
 {
 "x": 0,
+"y": 0
+}
+],
+"isClosed": true
+}
+]
+},
+"xAdvance": 0
+}
+},
+"5a1a7ed0": {
+"glyph": {
+"path": {
+"contours": [
+{
+"points": [
+{
+"x": -220,
+"y": 0
+},
+{
+"x": -220,
+"y": 0
+},
+{
+"x": -220,
 "y": 0
 }
 ],
