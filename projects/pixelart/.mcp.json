@@ -1,0 +1,22 @@
+{
+  "mcpServers": {
+    "libresprite": {
+      "command": "uvx",
+      "args": [
+        "libresprite-mcp"
+      ]
+    },
+    "serena": {
+      "type": "stdio",
+      "command": "serena",
+      "args": [
+        "start-mcp-server",
+        "--context",
+        "claude-code",
+        "--project",
+        "C:/Users/stola/Desktop/kodzenie/Evolveye/random-codes/projects/pixelart"
+      ],
+      "env": {}
+    }
+  }
+}
